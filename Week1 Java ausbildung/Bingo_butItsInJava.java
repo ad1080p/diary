@@ -1,28 +1,43 @@
-
-import java.util.Random;
+import java.util.ArrayList;
+import java.lang.Math;
 
 public class Bingo_butItsInJava {
     public static void main(String[] args) {
         int nAr[][] = new int[5][5];
-        Random random = new Random();
+        ArrayList<Integer> arrL = new ArrayList<>();
+        boolean duplicate = false;
+        int rand = 0;
+
         for (int i = 0; i < nAr.length; i++) {
-            nAr[i][0] = random.nextInt(15+1-1)+1;
-            nAr[i][1] = random.nextInt(30+1-16)+16;
-            nAr[i][2] = random.nextInt(45+1-31)+31;
-            nAr[i][3] = random.nextInt(60+1-46)+46;
-            nAr[i][4] = random.nextInt(75+1-61)+61;
+            for (int aR = 0; aR < nAr.length; aR++) {
+                while (!duplicate) {
+                    rand = (int) ((Math.random() * 15) + 1+15 * i);
+
+                    if (!arrL.contains(rand)) {
+                        duplicate = true;
+                        arrL.add(rand);
+                    }
+                }
+                nAr[aR][i] = rand;
+                duplicate = false;
+            }
         }
+        nAr[2][2] = 0;
+
+        String bingo[] ={"B","I","N","G","O"};
+
+        for (int i=0;i<bingo.length;i++){
+            System.out.print(bingo[i]+"\t");
+        }
+        System.out.println();
 
         for (int i = 0; i < nAr.length; i++) {
             for (int j = 0; j < nAr.length; j++) {
-                System.out.print(nAr[i][j] + "       ");
+                System.out.print(nAr[i][j] + "\t");
             }
             System.out.println("");
         }
 
 
     }
-
-
 }
-
