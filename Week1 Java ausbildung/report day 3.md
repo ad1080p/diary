@@ -1,5 +1,5 @@
 # Report 3
-* Was habe ich gelernt * 
+*Was habe ich gelernt* 
 
 1. Ich habe über Sotier Algorythmen gelernt
 2. Recursion & divide and conquer prinzip
